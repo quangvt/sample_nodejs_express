@@ -35,10 +35,12 @@ app.use((req, res, next) => {
     return next();
 });
 
-// Setup static folder (for access folder's files via http)
+// http://expressjs.com/en/4x/api.html#express.static
+// serves static assets such as HTML files, images, and so on
 app.use(express.static('public'));
 
-// Use middleware to parse request's body to x-www-form-urlencoded
+// http://expressjs.com/en/4x/api.html#express.urlencoded
+// parses incoming requests with URL-encoded payloads
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Fix error favicon.ico not found
@@ -57,12 +59,9 @@ app.use(async (req, res, next) => {
     }
 });
 
-// http://expressjs.com/en/starter/basic-routing.html
+// http://expressjs.com/en/guide/using-middleware.html
 // http://expressjs.com/en/guide/routing.html
-// ... begin: quote from above articles ...
-// A Router instance is a complete middleware and routing system.
-// for this reason, it is often referred to as a “mini-app”.
-// ... end:  quote from above articles ...
+// mount the router on the app
 app.use('/', routes({
     speakerService,
     feedbackService,
