@@ -25,8 +25,6 @@ class FeedbackService {
     if(!data) return [];
     return JSON.parse(data);
   }
-
-
 }
 
 module.exports = FeedbackService;

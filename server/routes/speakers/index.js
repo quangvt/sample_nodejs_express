@@ -1,9 +1,9 @@
 const express = require('express');
-
 const router = express.Router();
 
 module.exports = (param) => {
     const { speakerService } = param;
+
     router.get('/', async (req, res, next) => {
         try {
             const promises = [];

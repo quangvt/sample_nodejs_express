@@ -75,8 +75,6 @@ class SpeakerService {
     if(!data) return [];
     return JSON.parse(data).speakers;
   }
-
-
 }
 
 module.exports = SpeakerService;
